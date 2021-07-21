@@ -7,14 +7,14 @@
 - [Updater](https://github.com/mrhaydendp/Linux-Setup-Tools/blob/main/README.md#updates)
 
 ## Gaming
-### [Lutris](https://lutris.net/downloads/)
+### Lutris
 ```
 sudo add-apt-repository ppa:lutris-team/lutris
 sudo apt update
 sudo apt install lutris
 ```
-### [Proton GE](https://github.com/GloriousEggroll/proton-ge-custom/releases)
-#### Download latest release from above link
+### Proton GE
+#### Download latest release from this [link](https://github.com/GloriousEggroll/proton-ge-custom/releases)
 ```
 mkdir ~/.steam/root/compatibilitytools.d/
 cd Downloads/
@@ -22,7 +22,7 @@ tar -xf ./Proton*.tar.gz -C ~/.steam/root/compatibilitytools.d/
 ```
 #### Open Steam and select Proton-GE
 
-### [Wine](https://github.com/lutris/docs/blob/master/WineDependencies.md)
+### Wine
 #### For 21.04 (replace 'hirsute' with other Ubuntu codenames for other versions)
 ```
 sudo dpkg --add-architecture i386
@@ -32,8 +32,8 @@ sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ hirsute m
 sudo apt-get update && sudo apt-get install --install-recommends winehq-staging
 ```
 
-### [Steam](https://cdn.akamai.steamstatic.com/client/installer/steam.deb)
-#### Install .deb file from link above and open in eddy
+### Steam
+#### Install .deb file from [link](https://cdn.akamai.steamstatic.com/client/installer/steam.deb) and open in eddy
 
 ## Applications
 ### Brave
@@ -46,6 +46,25 @@ echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=
 
 sudo apt update && sudo apt install brave-browser
 ```
+
+### Auto-cpufreq
+#### Get the source code and run the installer
+```
+git clone https://github.com/AdnanHodzic/auto-cpufreq.git
+cd auto-cpufreq && sudo ./auto-cpufreq-installer
+```
+#### Install the auto-cpufreq daemon
+```
+sudo auto-cpufreq --install
+```
+#### Auto-cpufreq will take effect upon restart
+
+### Tlp
+#### Install tlp with current dependencies
+```
+sudo apt install tlp tlp-rdw --no-install-recommends
+```
+#### Tlp will take effect upon restart
 
 ## Drivers
 ### System76 Drivers
