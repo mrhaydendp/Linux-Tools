@@ -1,10 +1,18 @@
 # Linux Setup Tools
 ### Culmination of applications and scripts to setup Linux to your liking
-
+- [Wallpapers](https://github.com/mrhaydendp/Linux-Setup-Tools/blob/main/README.md#wallpapers)
 - [Gaming](https://github.com/mrhaydendp/Linux-Setup-Tools/blob/main/README.md#gaming)
 - [Applications](https://github.com/mrhaydendp/Linux-Setup-Tools/blob/main/README.md#applications)
 - [System76 Driver](https://github.com/mrhaydendp/Linux-Setup-Tools/blob/main/README.md#drivers)
 - [Updater](https://github.com/mrhaydendp/Linux-Setup-Tools/blob/main/README.md#updates)
+
+## Wallpapers
+#### Run this command to download the wallpapers
+```
+git clone https://www.github.com/mrhaydendp/Linux-Setup-Tools.git
+cd Linux-Setup-Tools && mv Wallpapers ~/Pictures
+sudo rm -r ~/Linux-Setup-Tools
+```
 
 ## Gaming
 ### Lutris
@@ -39,7 +47,7 @@ sudo apt-get update && sudo apt-get install --install-recommends winehq-staging
 ```
 
 ### Steam
-#### Install steam through terminal:
+#### Install steam through terminal
 ```
 sudo apt install steam
 ```
@@ -77,12 +85,12 @@ sudo apt install tlp tlp-rdw --no-install-recommends
 
 ## Drivers
 ### System76 Drivers
-#### Create the apt preferences file:
+#### Create the apt preferences file
 ```
 sudo gedit /etc/apt/preferences.d/system76-apt-preferences
 ```
 
-#### Add the following lines and click save:
+#### Add the following lines and click save
 ```
 Package: *
 Pin: release o=LP-PPA-system76-dev-stable
@@ -93,7 +101,7 @@ Pin: release o=LP-PPA-system76-dev-pre-stable
 Pin-Priority: 1001
 ```
 
-#### To install the Driver run the following commands in the Terminal:
+#### To install the Driver run the following commands in the Terminal
 ```
 sudo apt-add-repository -y ppa:system76-dev/stable
 sudo apt-get update
