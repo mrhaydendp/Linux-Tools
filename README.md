@@ -13,6 +13,12 @@ sudo add-apt-repository ppa:lutris-team/lutris
 sudo apt update
 sudo apt install lutris
 ```
+#### If you get MESA-INTEL: warning: Performance support disabled, consider sysctl dev.i915.perf_stream_paranoid=0 error do this:
+```
+sudo -i
+echo dev.i915.perf_stream_paranoid=0 > /etc/sysctl.d/60-mdapi.conf
+```
+#### Now reboot
 ### Proton GE
 #### Download latest release from this [link](https://github.com/GloriousEggroll/proton-ge-custom/releases)
 ```
@@ -33,7 +39,10 @@ sudo apt-get update && sudo apt-get install --install-recommends winehq-staging
 ```
 
 ### Steam
-#### Install .deb file from [link](https://cdn.akamai.steamstatic.com/client/installer/steam.deb) and open in eddy
+#### Install steam through terminal:
+```
+sudo apt install steam
+```
 
 ## Applications
 ### Brave
