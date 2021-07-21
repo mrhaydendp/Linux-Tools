@@ -1,10 +1,10 @@
 # Linux Setup Tools
 ### Culmination of applications and scripts to setup Linux to your liking
 
-- [Gaming](https://github.com/mrhaydendp/Linux-Setup-Tools/new/main#gaming)
-- [Applications](https://github.com/mrhaydendp/Linux-Setup-Tools/new/main#applications)
-- [System76 Driver](https://github.com/mrhaydendp/Linux-Setup-Tools/new/main#drivers)
-- [Updater](https://github.com/mrhaydendp/Linux-Setup-Tools/new/main#updates)
+- [Gaming](https://github.com/mrhaydendp/Linux-Setup-Tools/blob/main/README.md#gaming)
+- [Applications](https://github.com/mrhaydendp/Linux-Setup-Tools/blob/main/README.md#applications)
+- [System76 Driver](https://github.com/mrhaydendp/Linux-Setup-Tools/blob/main/README.md#drivers)
+- [Updater](https://github.com/mrhaydendp/Linux-Setup-Tools/blob/main/README.md#updates)
 
 ## Gaming
 ### [Lutris](https://lutris.net/downloads/)
