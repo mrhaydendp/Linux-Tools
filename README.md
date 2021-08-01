@@ -7,7 +7,7 @@
 - [Updater](https://github.com/mrhaydendp/Linux-Setup-Tools/blob/main/README.md#updates)
 
 ## Wallpapers
-#### Run this command to download the wallpapers
+Run this command to download the wallpapers
 ```
 git clone https://www.github.com/mrhaydendp/Linux-Setup-Tools.git
 cd Linux-Setup-Tools && mv Wallpapers ~/Pictures
@@ -21,23 +21,23 @@ sudo add-apt-repository ppa:lutris-team/lutris
 sudo apt update
 sudo apt install lutris
 ```
-#### If you get MESA-INTEL: warning: Performance support disabled, consider sysctl dev.i915.perf_stream_paranoid=0 error do this:
+If you get MESA-INTEL: warning: Performance support disabled, consider sysctl dev.i915.perf_stream_paranoid=0 error do this:
 ```
 sudo -i
 echo dev.i915.perf_stream_paranoid=0 > /etc/sysctl.d/60-mdapi.conf
 ```
 #### Now reboot
 ### Proton GE
-#### Download latest release from this [link](https://github.com/GloriousEggroll/proton-ge-custom/releases)
+Download latest release from this [link](https://github.com/GloriousEggroll/proton-ge-custom/releases)
 ```
 mkdir ~/.steam/root/compatibilitytools.d/
 cd Downloads/
 tar -xf ./Proton*.tar.gz -C ~/.steam/root/compatibilitytools.d/
 ```
-#### Open Steam and select Proton-GE
+Open Steam and select Proton-GE
 
 ### Wine
-#### For 21.04 (replace 'hirsute' with other Ubuntu codenames for other versions)
+For 21.04 (replace 'hirsute' with other Ubuntu codenames for other versions)
 ```
 sudo dpkg --add-architecture i386
 wget -nc https://dl.winehq.org/wine-builds/winehq.key
@@ -47,7 +47,7 @@ sudo apt-get update && sudo apt-get install --install-recommends winehq-staging
 ```
 
 ### Steam
-#### Install steam through terminal
+Install steam through terminal
 ```
 sudo apt install steam
 ```
@@ -63,34 +63,27 @@ echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=
 
 sudo apt update && sudo apt install brave-browser
 ```
-
-### Auto-cpufreq
-#### Get the source code and run the installer
+### GNOME Sushi
+Paste this command into terminal
 ```
-git clone https://github.com/AdnanHodzic/auto-cpufreq.git
-cd auto-cpufreq && sudo ./auto-cpufreq-installer
+sudo apt-get install gnome-sushi
 ```
-#### Install the auto-cpufreq daemon
-```
-sudo auto-cpufreq --install
-```
-#### Auto-cpufreq will take effect upon restart
 
 ### Tlp
-#### Install tlp with current dependencies
+Install tlp with current dependencies
 ```
 sudo apt install tlp tlp-rdw --no-install-recommends
 ```
-#### Tlp will take effect upon restart
+Tlp will take effect upon restart
 
 ## Drivers
 ### System76 Drivers
-#### Create the apt preferences file
+Create the apt preferences file
 ```
 sudo gedit /etc/apt/preferences.d/system76-apt-preferences
 ```
 
-#### Add the following lines and click save
+Add the following lines and click save
 ```
 Package: *
 Pin: release o=LP-PPA-system76-dev-stable
@@ -101,7 +94,7 @@ Pin: release o=LP-PPA-system76-dev-pre-stable
 Pin-Priority: 1001
 ```
 
-#### To install the Driver run the following commands in the Terminal
+To install the Driver run the following commands in the Terminal
 ```
 sudo apt-add-repository -y ppa:system76-dev/stable
 sudo apt-get update
@@ -109,7 +102,7 @@ sudo apt install system76-driver
 ```
 
 ## Updates
-#### Use this to update distro and remove old unused dependencies
+Use this to update distro and remove old unused dependencies
 ```
 sudo apt update && sudo apt full-upgrade
 ```
