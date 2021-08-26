@@ -2,7 +2,7 @@
 
 # Gaming + Tools
 
-echo Installing Steam & Proton-GE
+echo 'Installing Steam & Proton-GE'
 sudo apt install steam
 steam
 curl -s https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest | grep "browser_download_url.*tar.gz" | cut -d '"' -f 4 | wget -i -
