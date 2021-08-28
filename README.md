@@ -24,4 +24,4 @@ A culmination of applications and utilities to setup laptop and desktops.
 ## Update & Clean
 - Update
 - Clear Unnecessary Dependencies
-- Clear Apt Chache
+- Clear Apt Cache
