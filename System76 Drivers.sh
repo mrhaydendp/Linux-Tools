@@ -1,4 +1,4 @@
-!bin/bash
+#!/bin/bash
 
 # Download system76-apt-preferences & Move to Correct Directory
 wget https://github.com/mrhaydendp/Linux-Setup-Tools/raw/main/system76-apt-preferences
