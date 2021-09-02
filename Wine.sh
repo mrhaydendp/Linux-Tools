@@ -15,5 +15,5 @@ sudo apt-key add winehq.key
 # Add Repository + Change Codename to Current Distro
 sudo add-apt-repository "deb https://dl.winehq.org/wine-builds/ubuntu/ $codename main"
 
-# Update Repos && Install Wine
-sudo apt update && sudo apt install --install-recommends winehq-stable
+# Install Wine
+sudo apt install --install-recommends winehq-stable
