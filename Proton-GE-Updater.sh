@@ -5,7 +5,7 @@ format=$(curl -s https://api.github.com/repos/GloriousEggroll/proton-ge-custom/r
 format=$(echo "${current%.*}")
 ver=$(echo "${current%.*}")
 
-# Check if Proton is Installed
+# Check if Latest Proton is Installed
 if [ $(ls ~/.steam/debian-installation/compatibilitytools.d/$ver 2> /dev/null) ]; then # if files named "FOO*" were downloaded 
     echo "Latest Proton is Installed" 
 else
