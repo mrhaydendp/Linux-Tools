@@ -13,8 +13,7 @@ tool=$(zenity --list \
     'System76 Drivers' 'Driver installer for System76 devices'
     )
 
-echo $tool
-
+# Brave Installer
 if [ "$tool" = 'Brave Browser' ]; then
     sudo apt install apt-transport-https curl
     sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
@@ -23,24 +22,30 @@ if [ "$tool" = 'Brave Browser' ]; then
     sudo apt install brave-browser
     sh Setup-Tools.sh
 
+# Install Htop, Neofetch, and Hardinfo
 elif [ "$tool" = 'System Tools' ]; then
     sudo apt install htop neofetch hardinfo
-
-elif [ "$tool" = 'Proton-GE' ]; then
-    wget '' && sh Proton-GE-Updater.sh
     sh Setup-Tools.sh
 
+# Install Latest Proton-GE
+elif [ "$tool" = 'Proton-GE' ]; then
+    wget https://github.com/mrhaydendp/Linux-Setup-Tools/raw/main/Scripts/Proton-GE-Updater.sh && sh Proton-GE-Updater.sh
+    sh Setup-Tools.sh
+
+# Install Lutris
 elif [ "$tool" = 'Lutris' ]; then
     sudo add-apt-repository ppa:lutris-team/lutris
     sudo apt-get update && sudo apt install lutris
     sh Setup-Tools.sh
 
+# Install Wine
 elif [ "$tool" = 'Wine' ]; then
-    wget '' && Wine-Installer.sh
+    wget https://github.com/mrhaydendp/Linux-Setup-Tools/raw/main/Scripts/Wine-Installer.sh && sh Wine-Installer.sh
     sh Setup-Tools.sh
 
+# Install System76 Drivers
 elif [ "$tool" = 'System76 Drivers' ]; then
-    sudo wget -o /etc/apt/preferences.d/system76-apt-preferences https://github.com/mrhaydendp/Linux-Setup-Tools/raw/main/system76-apt-preferences
+    sudo wget -o /etc/apt/preferences.d/system76-apt-preferences https://github.com/mrhaydendp/Linux-Setup-Tools/raw/main/Scripts/system76-apt-preferences
     sh Setup-Tools.sh
 
 fi
