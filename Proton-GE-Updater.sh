@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Format $ver Variable
 format=$(curl -s https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest | grep "name" | grep Proton-* |  cut -d '"' -f 4)
 format=$(echo "${current%.*}")
