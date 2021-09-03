@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Make a Script Folder
+mkdir ./SetupTools 2> /dev/null
+
 # UI
 tool=$(zenity --list \
   --title='Linux Setup Tools' \
@@ -29,7 +32,7 @@ elif [ "$tool" = 'System Tools' ]; then
 
 # Install Latest Proton-GE
 elif [ "$tool" = 'Proton-GE' ]; then
-    wget https://github.com/mrhaydendp/Linux-Setup-Tools/raw/main/Scripts/Proton-GE-Updater.sh && sh Proton-GE-Updater.sh
+    wget https://git.io/JEhVC -O ./SetupTools/Proton-GE-Updater.sh && sh ./SetupTools/Proton-GE-Updater.sh
     sh Setup-Tools.sh
 
 # Install Lutris
@@ -40,12 +43,16 @@ elif [ "$tool" = 'Lutris' ]; then
 
 # Install Wine
 elif [ "$tool" = 'Wine' ]; then
-    wget https://github.com/mrhaydendp/Linux-Setup-Tools/raw/main/Scripts/Wine-Installer.sh && sh Wine-Installer.sh
+    wget https://git.io/JEhVu -O ./SetupTools/Wine-Installer.sh && sh Wine-Installer.sh
     sh Setup-Tools.sh
 
 # Install System76 Drivers
 elif [ "$tool" = 'System76 Drivers' ]; then
-    sudo wget -o /etc/apt/preferences.d/system76-apt-preferences https://github.com/mrhaydendp/Linux-Setup-Tools/raw/main/Scripts/system76-apt-preferences
+    sudo wget https://git.io/JEhV2 -O /etc/apt/preferences.d/system76-apt-preferences
     sh Setup-Tools.sh
 
 fi
+
+# Cleanup
+rm -r ./SetupTools
+rm Setup-Tools.sh
