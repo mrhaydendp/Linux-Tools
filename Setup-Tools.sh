@@ -43,7 +43,7 @@ elif [ "$tool" = 'Lutris' ]; then
 
 # Install Wine
 elif [ "$tool" = 'Wine' ]; then
-    wget https://git.io/JEhVu -O ./SetupTools/Wine-Installer.sh && sh Wine-Installer.sh
+    wget https://git.io/JEhVu -O ./SetupTools/Wine-Installer.sh && sh ./SetupTools/Wine-Installer.sh
     sh Setup-Tools.sh
 
 # Install System76 Drivers
