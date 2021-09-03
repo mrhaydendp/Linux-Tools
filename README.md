@@ -1,4 +1,4 @@
-# Setup Tools
+# Linux Setup Tools
 A collection of apps and scripts to setup your Ubuntu based linux machines.
 
 ## How to Run
