@@ -54,5 +54,5 @@ elif [ "$tool" = 'System76 Drivers' ]; then
 fi
 
 # Cleanup
-rm -r ./SetupTools
-rm Setup-Tools.sh
+rm -r ./SetupTools 2> /dev/null
+rm Setup-Tools.sh 2> /dev/null
