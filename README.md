@@ -1,5 +1,5 @@
-# Linux Setup Tools
-A culmination of applications and utilities to setup laptop and desktops.
+# Setup Tools
+A collection of apps and scripts to setup your Ubuntu based linux machines.
 
 ## How to Run
 ```
