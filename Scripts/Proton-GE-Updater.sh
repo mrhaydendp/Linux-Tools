@@ -6,7 +6,7 @@ format=$(echo "${current%.*}")
 ver=$(echo "${current%.*}")
 
 # Check if Latest Proton is Installed
-if [ $(ls ~/.steam/debian-installation/compatibilitytools.d/$ver 2> /dev/null) ]; then
+if [ $(ls ~/.steam/root/compatibilitytools.d/$ver 2> /dev/null) ]; then
     echo "Latest Proton is Installed" 
 else
     echo "Installing Latest Proton"
