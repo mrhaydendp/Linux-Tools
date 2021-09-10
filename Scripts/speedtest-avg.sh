@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Check if Speedtest-cli is installed
 if [ $(which speedtest == '*speedtest') ]; then
     echo Speetest-cli is installed
