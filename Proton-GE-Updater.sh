@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Check if Steam is Installed
-if [ $(which steam == '*steam') ]; then
+if [ $(command -v steam == '*steam') ]; then
     # Format $ver Variable
     format=$(curl -s https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest | grep "name" | grep Proton-* |  cut -d '"' -f 4)
     format=$(echo "${current%.*}")
