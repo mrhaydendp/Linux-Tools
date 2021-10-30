@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Check if Speedtest-cli is installed
-if [ $(which speedtest == '*speedtest') ]; then
+if [ $(command -v speedtest == '*speedtest') ]; then
     echo Speedtest-CLI is Installed
 else
     echo Speedtest-CLI is Not Installed
