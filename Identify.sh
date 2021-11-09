@@ -12,7 +12,7 @@ sudo lshw -class processor | grep "product:" | awk '{for (i=2; i<NF; i++) printf
 
 # Get Distro Name
 echo "You Are Running:"
-lsb_release -d | awk '{for (i=2; i<NF; i++) printf $i " "; print $NF}'
+lsb_release -ds
 
 # Get Populated Dimm Slots & Total Memory
 populated=$(sudo lshw -class memory | grep "description: SODIMM" | wc -l)
