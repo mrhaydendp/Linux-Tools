@@ -1,5 +1,5 @@
 # Linux Tools
-A collection of scripts for Ubuntu based distros.
+A collection of scripts for Ubuntu based distros (for now). To run use `sudo curl -sSL rawlinktoscript | bash` or download and `chmod +x` then run.
 
 ## Proton-GE Updater
 Checks for updates and installs tha latest version of Proton-GE
