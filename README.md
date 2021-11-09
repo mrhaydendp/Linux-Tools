@@ -15,3 +15,10 @@ Automated installer for Wine on Ubuntu based distros
 ## Speedtest-avg
 Terminal application that runs multiple speedtests and shows you the average download, upload, and ping.
 ![](https://raw.githubusercontent.com/mrhaydendp/mrhaydendp.github.io/main/assets/images/Speedtest-avg.png)
+
+## Identifier
+A script to give useful information about a system for diagnosing or debugging. Useful for I.T. professionals.
+
+**Working on a Better Name**
+
+![Identifer](https://raw.githubusercontent.com/mrhaydendp/mrhaydendp.github.io/main/assets/images/Identifier.png)
