@@ -16,6 +16,6 @@ else
     # Add Repository + Change Codename to Current Distro
     sudo add-apt-repository "deb https://dl.winehq.org/wine-builds/ubuntu/ $codename main"
     # Install Wine
-    sudo apt install --install-recommends winehq-stable
+    sudo apt install --install-recommends winehq-stable -y
     echo 'Successfuly Installed Wine'
 fi
