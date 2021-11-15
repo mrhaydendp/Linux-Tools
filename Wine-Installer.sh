@@ -1,21 +1,20 @@
 #!/bin/bash
 
 # Check if Wine is Installed
-if [ $(wine --version == 'Wine*') ]; then
-    echo 'Wine is Installed'
-else
-    echo 'Installing Wine'
+[ "$(command -v wine)" = "/usr/bin/wine" ] &&
+    echo "Wine is Already Installed" && exit
+[ "$(command -v wine)" = "/usr/bin/wine" ] ||
+    echo "Installing Wine" &&
     # Get Distros Codename
-    codename=$(lsb_release -cs)
+    codename=$(lsb_release -cs) &&
     # Add 32-bit Architecture
-    sudo dpkg --add-architecture i386
+    sudo dpkg --add-architecture i386 &&
     # Download Repository Key
-    wget -nc https://dl.winehq.org/wine-builds/winehq.key
+    wget -nc https://dl.winehq.org/wine-builds/winehq.key &&
     # Add Repository Key
-    sudo apt-key add winehq.key
+    sudo apt-key add winehq.key &&
     # Add Repository + Change Codename to Current Distro
-    sudo add-apt-repository "deb https://dl.winehq.org/wine-builds/ubuntu/ $codename main"
+    sudo add-apt-repository "deb https://dl.winehq.org/wine-builds/ubuntu/ $codename main" &&
     # Install Wine
-    sudo apt install --install-recommends winehq-stable -y
+    sudo apt install --install-recommends winehq-stable -y &&
     echo 'Successfuly Installed Wine'
-fi
