@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Get Hostname
 echo "Your Hostname Is:"
 hostname
@@ -15,10 +17,10 @@ echo "You Are Running:"
 lsb_release -ds
 
 # Get Populated Dimm Slots & Total Memory
-populated=$(sudo lshw -class memory | grep "description: SODIMM" | wc -l)
-echo "You Have "$populated" Populated Ram Slots With a Total of:"
+populated=$(sudo lshw -class memory | grep -c "description: SODIMM")
+echo You Have "$populated" Populated Ram Slots With a Total of:
 ram=$(free --giga | grep "Mem:" | awk '{print $2}')
-echo ""$ram"GB of Ram"
+echo "$ram"GB of Ram
 
 # Get Device Form Factor
 echo "Form Factor:"
