@@ -11,7 +11,7 @@ do
     [ "$i" = 1 ] && echo -ne '                          (0%)\r'
     [ "$i" = 2 ] && echo -ne '#####                     (33%)\r'
     [ "$i" = 3 ] && echo -ne '#############             (66%)\r'
-    echo speedtest-cli #> run$i.txt
+    speedtest-cli > run$i.txt
 done
 echo -ne '#######################   (100%)\r'
 echo -ne '\n'
