@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 # Check if Speedtest-CLI is Installed
-[ -z != $(command -v speedtest-cli) ] ||
-{ echo "Speedtest-CLI is Not Installed"; exit; } &&
-echo "Running Speedtests..."
+[ -z != $(command -v speedtest) ] ||
+    { echo "Speedtest-CLI is Not Installed"; exit; } &&
+    echo "Running Speedtests..."
 
 # Run 3 Speedtests & Output to Run*.txt w/ Progress Hashes 
 for i in 1 2 3
@@ -16,23 +16,17 @@ done
 echo -ne '#######################   (100%)\r'
 echo -ne '\n'
 
-# Get Ping From Run*.txt
-arr=($(grep "ms" ./run*.txt | awk -F ':' '{print $3}'))
+# Calculate Average Ping Time & Display
+arr=($(grep "ms" ./run*.txt | awk -F ':' '{print $3}')) &&
+Ping=$(echo "(${arr[0]} + ${arr[2]} + ${arr[4]}) / 3" | bc -l | awk '{printf("%.2f\n",$1)}')
+echo "Average Ping: $Ping ms"
 
-# Average Ping
-echo "Average Ping (ms):"
-echo "(${arr[0]} + ${arr[2]} + ${arr[4]}) / 3" | bc -l | awk '{printf("%.2f\n",$1)}'
-
-# Get Download Speed From Run*.txt
+# Calculate Average Download Speed & Display
 arr=( $(grep "Download:" ./run*.txt) )
+Download=$(echo "(${arr[1]} + ${arr[4]} + ${arr[7]}) / 3" | bc -l | awk '{printf("%.2f\n",$1)}')
+echo "Average Download Speed: $Download Mbps"
 
-# Average Download Speed
-echo "Average Download Speed (Mbps):"
-echo "(${arr[1]} + ${arr[4]} + ${arr[7]}) / 3" | bc -l | awk '{printf("%.2f\n",$1)}'
-
-# Get Upload Speed From Run*.txt
+# Calculate Average Upload Speed & Display
 arr=( $(grep "Upload:" ./run*.txt) )
-
-# Average Upload Speed
-echo "Average Upload Speed (Mbps):"
-echo "(${arr[1]} + ${arr[4]} + ${arr[7]}) / 3" | bc -l | awk '{printf("%.2f\n",$1)}'
+Upload=$(echo "(${arr[1]} + ${arr[4]} + ${arr[7]}) / 3" | bc -l | awk '{printf("%.2f\n",$1)}')
+echo "Average Upload Speed: $Upload Mbps"
