@@ -16,8 +16,10 @@ do
     speedtest --share > run$i.txt ||
     { echo "One or More of the Speedtests Failed, Exiting"; exit; }
 done
-echo -ne '#######################   (100%)\r'
-echo -e '\n'
+echo -ne '#######################   (100%)\r' && sleep 1
+clear
+date=$(date +"%c")
+echo -e "Speedtest Result - $date \n"
 
 # Calculate Average Ping Time & Display
 arr=($(grep "ms" ./run*.txt | awk -F ':' '{print $3}'))
