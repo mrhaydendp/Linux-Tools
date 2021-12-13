@@ -4,7 +4,7 @@
 if ! command -v speedtest &> /dev/null; then
     echo "Speedtest is Not Installed"; exit
 else
-    echo "Running Speedtests..."
+    echo -ne 'Running Speedtests...\r'
 fi
 
 # Run 3 Speedtests & Output to Run*.txt w/ Progress Hashes 
@@ -17,7 +17,6 @@ do
     { echo "One or More of the Speedtests Failed, Exiting"; exit; }
 done
 echo -ne '#######################   (100%)\r' && sleep 1
-clear
 date=$(date +"%c")
 echo -e "Speedtest Result - $date \n"
 
@@ -43,3 +42,4 @@ for http in "${arr[@]}"
 do
     echo "- https://www.speedtest."${http}
 done
+echo ""
