@@ -8,8 +8,6 @@ Checks for updates and installs tha latest version of Proton-GE
 ## Wine-Installer
 Automated installer for Wine on Ubuntu based distros
 
-**Note may not work on Elementary OS**
-
 ![](https://raw.githubusercontent.com/mrhaydendp/mrhaydendp.github.io/main/assets/images/Wine-Installer.png)
 
 ## Speedtest-avg
