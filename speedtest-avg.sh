@@ -1,44 +1,38 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
-# Check if Speedtest-CLI is Installed
-if ! command -v speedtest &> /dev/null; then
-    echo "Speedtest is Not Installed"; exit
-else
-    echo -ne 'Running Speedtests...\r'
-    # Run 3 Speedtests & Output to Run*.txt w/ Progress Hashes 
-    for i in 1 2 3
-    do
-        [ "$i" = 1 ] && echo -ne '                          (0%)\r'
-        [ "$i" = 2 ] && echo -ne '#####                     (33%)\r'
-        [ "$i" = 3 ] && echo -ne '#############             (66%)\r'
-        speedtest --share > run$i.txt ||
-        { echo "Speedtest $i of 3 Failed, Exiting"; exit; }
-    done
-    echo -ne '#######################   (100%)\r' && sleep 1
-    date=$(date +"%c")
-    echo -e "Speedtest Result - $date \n"
+# Check if Speedtest or Speedtest-cli is Installed
+command -v speedtest >/dev/null 2>&1 || { echo >&2 "This application requires Speedtest to be installed, Exiting..."; exit 1; }
 
-    # Calculate Average Ping Time & Display
-    arr=($(grep "ms" ./run*.txt | awk -F ':' '{print $3}'))
-    Ping=$(echo "(${arr[0]} + ${arr[2]} + ${arr[4]}) / 3" | bc -l | awk '{printf("%.2f\n",$1)}')
-    echo "Average Ping: $Ping ms"
+# Run 3 Speedtests & Output to Run*.txt w/ Progress Hashes
+printf "Running Speedtests...\r"
+for i in 1 2 3
+do
+    [ "$i" = 1 ] && printf "                          (0%%)\r"
+    [ "$i" = 2 ] && printf "#####                     (33%%)\r"
+    [ "$i" = 3 ] && printf "#############             (66%%)\r"
+    speedtest --share > run$i.txt ||
+    { echo "Speedtest $i of 3 Failed, Exiting"; exit; }
+done
+printf "#######################   (100%%)\r"
+date=$(date +"%c")
+printf "Speedtest Result - %s\n\n" "$date"
 
-    # Calculate Average Download Speed & Display
-    arr=($(grep "Download:" ./run*.txt)) &&
-    Download=$(echo "(${arr[1]} + ${arr[4]} + ${arr[7]}) / 3" | bc -l | awk '{printf("%.2f\n",$1)}')
-    echo "Average Download Speed: $Download Mbps"
+# Grab Ping Speeds from Run*.txt & Average them
+ping=$(grep "ms" ./run*.txt | awk -F ':' '{print $3}' | awk '{if(min=="")total+=$1; count+=1} END {print total/count}' | awk '{printf("%.2f\n",$1)}')
+echo "Average Ping Speed: $ping ms"
 
-    # Calculate Average Upload Speed & Display
-    arr=($(grep "Upload:" ./run*.txt)) &&
-    Upload=$(echo "(${arr[1]} + ${arr[4]} + ${arr[7]}) / 3" | bc -l | awk '{printf("%.2f\n",$1)}')
-    echo -e "Average Upload Speed: $Upload Mbps \n"
+# Grab Download Speeds from Run*.txt & Average them
+download=$(grep "Download:" ./run*.txt | awk '{print $2}' | awk '{if(min=="")total+=$1; count+=1} END {print total/count}' | awk '{printf("%.2f\n",$1)}')
+echo "Average Download Speed: $download Mbps"
 
-    # View Results on the Web
-    echo "View Results in the Browser:"
-    arr=($(grep "http://" ./run*.txt | awk '{print $3}' | cut -f 3 -d "."))
-    for http in "${arr[@]}"
-    do
-        echo "- https://www.speedtest."${http}
-    done
-    echo ""
-fi
+# Grab Upload Speeds from Run*.txt & Average them
+upload=$(grep "Upload:" ./run*.txt | awk '{print $2}' | awk '{if(min=="")total+=$1; count+=1} END {print total/count}' | awk '{printf("%.2f\n",$1)}')
+echo "Average Upload Speed: $upload Mbps"
+
+# View Results on the Web
+echo && echo "View Results in the Browser:"
+results=$(grep "http://" ./run*.txt | awk '{print $3}' | cut -f 1,2,3 -d ".")
+for http in ${results}
+do
+    echo "- $http"
+done
